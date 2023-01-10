@@ -1,0 +1,20 @@
+import java.util.HashSet;
+
+public class Main {
+    public static boolean hasTargetSum(int[] arr, int target) {
+        // Create a HashSet to store the integers we've seen so far
+        HashSet<Integer> seen = new HashSet<>();
+        
+        // Iterate through the array
+        for (int num : arr) {
+            // Check if the difference between the target and the current number is in the HashSet
+            if (seen.contains(target - num)) {
+                return true;
+            }
+            seen.add(num);
+        }
+        
+        // If no pair of integers adds up to the target, return false
+        return false;
+    }
+}
